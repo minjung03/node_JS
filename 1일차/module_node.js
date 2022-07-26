@@ -64,3 +64,19 @@ console.log('base64 : ', crypto.createHash('sha512').update('123').digest('base6
 console.log('md5 : ', crypto.createHash('md5').update('123').digest('base64'));
 console.log('hex : ', crypto.createHash('sha512').update('123').digest('hex'));
 console.log()
+
+
+// 6. fs 모듈 (파일 시스템에 접근하는 모듈, 파일을 생성/삭제/읽기/쓰기 가능)
+const fs = require('fs');
+fs.readFile('./sam2.txt', (err,data) => {
+    if (err) throw err;
+    console.log(data.toString());
+});
+
+const fs2 = require('fs').promises;
+fs2.readFile('./sam2.txt').then((data)=>{
+    console.log(data.toString());
+})
+.catch((err)=>{
+    console.error(err);
+})

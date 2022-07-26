@@ -105,4 +105,3 @@ fs2.readFile('../1일차/sam.txt').then((data) => {
     console.error(err);
 })
 console.log('끝');
-

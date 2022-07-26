@@ -39,12 +39,36 @@ setInterval(test, 5000); // 5초 후에 서버 종료
 - localhost는 컴퓨터 내부 주소(외부에서 접근 불가능)
 - 사용하지 않는 포트를 사용자 포트로 정해야한다
 */
+var fs = require('fs');
 var http = require('http');
 http.createServer((req, res) => {
+
+      /*
       res.writeHead(200, {'Content-Type':'text/html;charset=utf-8'});
       res.write('<h1>Hello Node.js</h1>');
       res.end('<p>Hello Server</p>');
-})
-.listen(4444, function(){
+      */
+
+      try {
+      // html 문서를 읽어서 전송
+      fs.readFile('./index.html', function(err, data){ 
+            res.writeHead(200, {'Content-Type':'text/html;charset=utf-8'});
+            res.end(data);
+      });
+
+     /*
+      // 이미지 파일
+      fs.readFile('./media/sky.jpg', function(err, data){ 
+            res.writeHead(200, {'Content-Type':'image/jpeg'});
+            res.end(data);
+      });
+      */
+      }
+      catch(err){
+            res.writeHead(500, {'Content-Type':'text/plain;charset=utf-8'});
+            res.end(err.message);
+      }
+
+}).listen(4444, () =>{
       console.log('4444번 포트에서 대기중...');
 });

@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'EarlyFontDiary';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+div {
+    font-family: 'EarlyFontDiary';
+    width: 500px;
+    margin: 0 auto;
+    background-color : rgb(138, 170, 240);
+    border-radius: 100px;
+    border : 1px solid rgb(138, 170, 240);
+    text-align : center;
+    padding: 5px;
+}
+h1{
+    font-size: 20px;
+    color: white;
+}

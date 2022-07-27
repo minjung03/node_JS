@@ -20,12 +20,11 @@ package.json 파일
 - node.js 프로젝트의 환경 설정 정보를 담은 파일
 */
 
-
-/* ejs 모듈 */
-
-// 모듈을 추출
 var http = require('http');
 var fs = require('fs');
+
+/* ejs 모듈 
+// 모듈을 추출
 var ejs = require('ejs');
 
 // 서버 생성 & 실행
@@ -39,6 +38,43 @@ http.createServer(function(request, response){
             description : 'Hello ejs With Node.js!'
         }));
 
+    })
+}).listen(4444, function(){
+    console.log('Server Running at http://127.0.0.1:4444');
+});
+*/
+
+/* 
+jade 모듈 
+- ejs 모듈의 render() 메서드와 다르게 함수를 리턴
+
+compile(string, option) 
+- jade 문자열을 html 문자열로 바꿀 수 있는 함수 생성
+
+기본형식
+- 들여쓰기를 한다
+
+특수기호
+- # (value) / =(value) : 데이터 출력
+- -Code : JS 코드
+*/
+
+// 모듈을 추출
+var jade = require('jade');
+
+// 서버 생성 & 실행
+http.createServer(function(request, response){
+    fs.readFile('jadePage.jade', 'utf-8', function(error, data){
+
+        // jade 모듈 사용
+        var fn = jade.compile(data);
+
+        response.writeHead(200, {'Content-Type' : 'text/html; charset=utf-8'});
+        // response.end(fn());
+        response.end(fn({ 
+            name : 'node.js', 
+            description : 'Hello node.js With JadePage!'
+        }));
     })
 }).listen(4444, function(){
     console.log('Server Running at http://127.0.0.1:4444');

@@ -1,0 +1,15 @@
+html
+    head   
+        title Index Page
+    body 
+        h1 #{name}..!
+        #header
+        h2= description
+        .aaa
+        hr
+        // 여기부터 자바 스크립트
+        -for(var i=0; i<10; i++){
+            p  
+                a(href ="https://www.e-mirim.hs.kr/main.do" 
+                data-test="multiple Attribute") 미림여자정보과학고 #{i}
+        -}

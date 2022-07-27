@@ -23,7 +23,7 @@ package.json 파일
 var http = require('http');
 var fs = require('fs');
 
-/* ejs 모듈 
+/* ejs 모듈 */
 // 모듈을 추출
 var ejs = require('ejs');
 
@@ -42,7 +42,7 @@ http.createServer(function(request, response){
 }).listen(4444, function(){
     console.log('Server Running at http://127.0.0.1:4444');
 });
-*/
+
 
 /* 
 jade 모듈 

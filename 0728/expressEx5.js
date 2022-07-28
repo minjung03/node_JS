@@ -1,9 +1,17 @@
+var bodyParser = require('body-parser'); // bodyParser 등록
 var express = require('express');
 var http = require("http");
+var path = require("path");
+var static = require('serve-static');
 var app = express();
 
 // set() : 서버 설정을 위한 속정 지정하기
 app.set('port', process.env.PORT || 4444); 
+
+app.use(static(path.join(__dirname, 'media')));
+// bodyParser 미들웨어 사용 (post 방식의 데이터를 주고 받을 수 있음)
+app.use(bodyParser.urlencoded({extended : false}));
+app.use(bodyParser.json());
 
 // 미을웨어 사용
 app.use(function(req, res, next){
@@ -11,11 +19,12 @@ app.use(function(req, res, next){
 
     // 데이터를 주고 받을 수 있게 get,post 사용
     var useAgent = req.header('User-Agent');
-    // get 방식 사용
-    var parmName = req.query.name;
-    var parmTel = req.query.tel; 
+    // post 방식 사용
+    var parmId = req.body.id; // html에 있는 name과 같아야한다
+    var parmPw = req.body.pass;
+
     res.send('<h2>서버에서 응답 User-Agent -> </h2>'+useAgent+
-    '<h2>parmName -> '+parmName+'</h2>'+'<h2>parmTel -> '+parmTel+'</h2>');
+    '<h2>parmId -> '+parmId+'</h2>'+'<h2>parmPw -> '+parmPw+'</h2>');
 });
 
 // get() : 서버 설정을 위해 지정한 속성 꺼내오기

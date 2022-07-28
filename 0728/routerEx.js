@@ -2,8 +2,16 @@ var express = require('express');
 var http = require("http");
 var bodyParser = require('body-parser'); 
 var path = require("path");
+/*
+[라우터]
+- 사용자가 요청한 기능이 무엇인지 패스를 기준으로 구별
+- Router 객체를 참조한 후 route() 메소드를 이용해 라우팅
+*/
+
 var static = require('serve-static');
 var app = express();
+
+
 app.set('port', process.env.PORT || 4444); 
 
 app.use(static(path.join(__dirname, 'media')));

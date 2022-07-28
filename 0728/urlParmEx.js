@@ -1,3 +1,11 @@
+/*
+[url 파라메터 이용하기]
+
+GET 방식의 파리메터 -> query 객체
+POST 방식의 파리메터 -> body 객체
+URL 방식의 파리메터 -> params 객체
+*/
+
 var express = require('express');
 var http = require("http");
 var bodyParser = require('body-parser'); 

@@ -1,4 +1,4 @@
-var bodyParser = require('body-parser'); // bodyParser 등록
+var bodyParser = require('body-parser'); // bodyParser 불러오기
 var express = require('express');
 var http = require("http");
 var path = require("path");
@@ -9,8 +9,10 @@ var app = express();
 app.set('port', process.env.PORT || 4444); 
 
 app.use(static(path.join(__dirname, 'media')));
+
 // bodyParser 미들웨어 사용 (post 방식의 데이터를 주고 받을 수 있음)
 app.use(bodyParser.urlencoded({extended : false}));
+// body-parser을 이용해 application/json 파싱
 app.use(bodyParser.json());
 
 // 미을웨어 사용

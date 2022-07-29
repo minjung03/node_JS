@@ -11,7 +11,6 @@ var path = require("path");
 var static = require('serve-static');
 var app = express();
 
-
 app.set('port', process.env.PORT || 4444); 
 
 app.use(static(path.join(__dirname, 'media')));
@@ -32,7 +31,7 @@ router.route('/process/login').post(function(req, res){
     res.end();
 });
 
-app.use('/', router);
+app.use('/', router); // 위치 조절 잘하기!
 
 var server = http.createServer(app).listen(app.get('port'), function(){
     console.log('익스프레스 서버를 시작합니다 : '+app.get('port'));

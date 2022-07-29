@@ -1,0 +1,42 @@
+<style>
+    table{
+        border-collapse: collapse;
+        text-align: center;
+        width: 300px;
+    }
+    td {
+        padding: 5px;
+    }
+    #text {
+        font-size: 13px;
+        height: 100px;
+    }
+    div {
+        border: 1px solid rgb(233, 233, 233);
+        width: 200px;
+        margin: 0 auto;
+    }
+</style>
+
+<form method="post" action="/process/reset_memo">
+<table border="1">
+    <tr>
+        <td>나의 메모</td>
+    </tr>
+    <tr>
+        <td id="text">
+
+            <div>메모가 저장되었습니다.</div>
+            <br/>
+            
+            작성자: <%= parmName %> <br/>
+            작성일시 : <%= parmDate %> <br/>
+            내용 : <%= parmText %> 
+        </td>
+    </tr>
+    
+    <tr>
+        <td><input type="submit" value="다시작성버튼"></td>
+    </tr>
+</table>
+</form>

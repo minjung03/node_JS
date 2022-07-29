@@ -18,13 +18,12 @@ app.use('/', router); // 위치 조절 잘하기!
 var multer= require('multer');
 var fs= require('fs');
 var cors= require('cors');
-
 var storage = multer.diskStorage({
     destination : function(req, file, callback){
         callback(null, 'upload')
     },
     filename : function(req, file, callback){
-        callback(null, file.originalname + Date.now())
+        callback(null, Date.now()+'_'+file.originalname)
     }
 });
 

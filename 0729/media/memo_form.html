@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>나의 메모 저장소</title>
+    </head>
+    <body>
+        <h3>나의 메모</h3>
+        <form method="post" action="/process/new_memo">
+            <table>
+                <tr>
+                    <td>작성자</td>
+                    <td><input type="text" name="name"/></td>
+                </tr>
+                <tr>
+                    <td>작성일시</td>
+                    <td><input type="text" name="date"/></td>
+                </tr>
+                <tr>
+                    <td>내용</td>
+                    <td><textarea name="text"></textarea></td>
+                </tr>
+            </table>
+            <input type="submit" value="저장"/>
+            <input type="button" value="닫기"/>
+        </form>
+    </body>
+</html>

@@ -11,6 +11,9 @@ var static = require('serve-static');
 var expressSession = require('express-session'); // 세션 추가
 var app = express();
 
+var expressErrorHandler = require('express-error-handler');
+var errorHandler = require('errorhandler');
+
 app.set('port', process.env.PORT || 4444); 
 
 app.use('/media', static(path.join(__dirname, 'media')));

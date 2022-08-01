@@ -60,7 +60,6 @@ app.get('/insert', function(req, res){
 });
 app.post('/insert', function(req, res){
     var body = req.body;
-
     client.query('insert into products(name, modelnumber, series) values (?,?,?)',
     [body.name, body.modelnum, body.series], function(){
         console.log('--------데이터가 추가되었습니다.');

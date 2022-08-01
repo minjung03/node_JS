@@ -38,7 +38,9 @@
                 <td><%= item.name  %> </td>
                 <td><%= item.modelnumber  %> </td>
                 <td><%= item.series  %> </td>
-                <td><a href='/delete/<%= item.id  %>'>삭제</a></td>
+                <td><a href='/delete/<%= item.id  %>'>삭제</a>
+                    <a href='/update/<%= item.id  %>'>수정</a>
+                </td>
             </tr>
             <% }); %>      
 

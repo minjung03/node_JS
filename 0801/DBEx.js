@@ -67,6 +67,28 @@ app.post('/insert', function(req, res){
     });
 });
 
+
+// 데이터 수정
+app.get('/update/:id', function(req, res){
+    fs.readFile('DBEx_update.html', 'utf8', function(error, data){
+        client.query('select * from products where id = ?', [req.params.id], function(err, result){
+            res.send(ejs.render(data, {
+                data : result[0]
+            })); 
+        });
+    });
+});
+app.post('/update/:id', function(req, res){
+    var body = req.body;
+    client.query('update products set name=?, modelnumber=?, series=? where id=?',
+    [body.name, body.modelnum, body.series, req.params.id], function(){
+        console.log(body.name+' '+body.modelnum);
+        console.log('--------데이터가 수정되었습니다.');
+        res.redirect('/');
+    });
+});
+
+
 // 데이터베이스 쿼리 실행
 client.query('select * from products', function(error, result, fields){
     if(error) console.log('에러 발생 : '+error);

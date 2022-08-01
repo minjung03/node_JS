@@ -5,29 +5,33 @@
         <title>DB 리스트 추가</title>
     </head>
     <body>
-        <h1>add List</h1>
+        <h1>Update List</h1>
 
         <form method="post">
             <fieldset>
-                <legend>INSERT DATA</legend>
+                <legend>Update DATA</legend>
         
                 <table>
                     <tr>
+                        <td>ID</td>
+                        <td><input type="text" name="name" value="<%= data.id %>" disabled/></td>
+                    </tr>
+                    <tr>
                         <td>Name</td>
-                        <td><input type="text" name="name"/></td>
+                        <td><input type="text" name="name" value="<%= data.name %>"/></td>
                     </tr>
                     <tr>
                         <td>ModelNumber</td>
-                        <td><input type="text" name="modelnum"/></td>
+                        <td><input type="text" name="modelnum" value="<%= data.modelnumber %>"/></td>
                     </tr>
                     <tr>
                         <td>Series</td>
-                        <td><input type="text" name="series"/></td>
+                        <td><input type="text" name="series" value="<%= data.series %>"/></td>
                     </tr>
                 </table>
     
                 <br/>
-                <input type="submit" value="추가"/>
+                <input type="submit" value="수정">
             </fieldset>
         </form>
 

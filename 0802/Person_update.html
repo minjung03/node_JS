@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DB 리스트 추가</title>
+    </head>
+    <body>
+        <h1>Update List</h1>
+
+        <form method="post">
+            <fieldset>
+                <legend>Update DATA</legend>
+        
+                <table>
+                    <tr>
+                        <td>ID</td>
+                        <td><input type="text" name="name" value="<%= data.id %>" disabled/></td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td><input type="text" name="name" value="<%= data.name %>"/></td>
+                    </tr>
+                    <tr>
+                        <td>Age</td>
+                        <td><input type="text" name="age" value="<%= data.age %>"/></td>
+                    </tr>
+                    <tr>
+                        <td>Married</td>
+                        <td><input type="text" name="married" value="<%= data.married %>"/></td>
+                    </tr>
+                </table>
+    
+                <br/>
+                <input type="submit" value="수정">
+            </fieldset>
+        </form>
+
+    </body>
+</html>
